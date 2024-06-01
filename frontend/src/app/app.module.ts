@@ -12,15 +12,8 @@ import { MuseumComponent } from "./components/museum/museum.component";
 import { NavbarComponent } from "./components/navbar/navbar.component";
 
 @NgModule({
-<<<<<<< Updated upstream
-  declarations: [AppComponent, MuseumComponent, NavbarComponent],
-=======
-  declarations: [
-    AppComponent,
-    NavbarComponent,
-    MuseumComponent
-  ],
->>>>>>> Stashed changes
+  declarations: [AppComponent, NavbarComponent, MuseumComponent],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
