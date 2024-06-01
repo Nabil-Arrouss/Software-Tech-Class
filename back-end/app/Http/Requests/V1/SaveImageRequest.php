@@ -31,7 +31,7 @@ class SaveImageRequest extends FormRequest
         ];
     }
 
-    // Throw an HTTP response exception with JSON containing validation errors
+    // Throw an HTTP response exception with JSON containing validation errors 
     protected function failedValidation(Validator $validator)
     {
         throw new HttpResponseException(response()->json([
