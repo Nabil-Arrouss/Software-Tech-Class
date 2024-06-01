@@ -1,0 +1,20 @@
+<!-- Form -->
+<app-image-form (savedImage)="onSavedImage($event)"></app-image-form>
+
+<div class="container py-5">
+    <p>{{ images.length }} Total exhibits</p>
+
+    <div class="row" *ngIf="images.length > 0; else emptyMuseum">
+        <!-- agragate app-image component -->
+        <div class="col-12 col-md-6 col-lg-3 mb-3" *ngFor="let image of images">
+                <app-image [image]="image" (deletedImage)="onDeletedImage($event)"></app-image>
+        </div>
+
+    </div>
+    <ng-template #emptyMuseum>
+        <div class="empty-message d-flex align-items-center justify-content-center flex-column">
+           <h2 class="lead text-secondary">No exhibits availble at the moment</h2>
+           <p class="text-secondary">try saving a picture of art</p>
+        </div>
+    </ng-template>
+</div>
