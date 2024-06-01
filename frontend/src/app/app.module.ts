@@ -10,21 +10,16 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MuseumComponent } from './components/museum/museum.component';
 
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { MuseumComponent } from './components/museum/museum.component';
-import { ImageFormComponent } from './components/image-form/image-form.component';
-import { ImageComponent } from './components/image/image.component';
-import { ImageInfoComponent } from './components/image-info/image-info.component';
+
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    MuseumComponent
-    NavbarComponent,
     MuseumComponent,
-    ImageFormComponent,
-    ImageComponent,
-    ImageInfoComponent
+    NavbarComponent,
+    MuseumComponent
   ],
   imports: [
     BrowserModule,
