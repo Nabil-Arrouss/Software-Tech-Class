@@ -1,34 +1,27 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { NgModule } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
+import { HttpClientModule } from "@angular/common/http";
+import { ReactiveFormsModule } from "@angular/forms";
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from "./app.component";
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
-import { MuseumComponent } from './components/museum/museum.component';
+import { MuseumComponent } from "./components/museum/museum.component";
 
-import { NavbarComponent } from './components/navbar/navbar.component';
-
-
-
+import { NavbarComponent } from "./components/navbar/navbar.component";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    MuseumComponent,
-    NavbarComponent,
-    MuseumComponent
-  ],
+  declarations: [AppComponent, MuseumComponent, NavbarComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    NgbModule
+    NgbModule,
   ],
+
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
