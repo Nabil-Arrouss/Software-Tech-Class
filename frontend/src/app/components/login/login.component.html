@@ -1,0 +1,73 @@
+<!-- Login Component HTML -->
+<div
+  class="modal fade"
+  id="loginModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="loginModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginModalLabel">Login</h5>
+        <button type="button" class="close" (click)="closeModal()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        
+      </div>
+      <div class="modal-body">
+        <!-- Errors -->
+        <div class="alert alert-danger" *ngIf="errors?.email">
+          {{ errors.email }}
+        </div>
+        <div class="alert alert-danger" *ngIf="errors?.password">
+          {{ errors.password }}
+        </div>
+        <div
+          class="alert alert-danger"
+          *ngIf="errors && !errors.email && !errors.password"
+        >
+          {{ errors }}
+        </div>
+
+        <!-- Login Form -->
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <div class="mb-3">
+            <label for="inputEmail" class="form-label">Email address</label>
+            <input
+              type="email"
+              class="form-control"
+              id="inputEmail"
+              formControlName="email"
+              aria-describedby="emailHelp"
+            />
+            <div id="emailHelp" class="form-text">
+              We'll never share your email with anyone else.
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="inputPassword" class="form-label">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="inputPassword"
+              formControlName="password"
+            />
+          </div>
+          <button type="submit" class="btn btn-lg btn-primary w-100">
+            Login
+          </button>
+        </form>
+        <a routerLink="/signup" class="d-block text-center"
+          >Create an account</a
+        >
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
