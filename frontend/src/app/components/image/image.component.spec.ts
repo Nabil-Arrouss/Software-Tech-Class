@@ -1,21 +1,22 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TestBed } from "@angular/core/testing";
+import { ImageComponent } from "./image.component";
+import { HttpClientTestingModule } from "@angular/common/http/testing";
+import { ImageService } from "../../services/image.service";
 
-import { ImageComponent } from './image.component';
-
-describe('ImageComponent', () => {
-  let component: ImageComponent;
-  let fixture: ComponentFixture<ImageComponent>;
-
+describe("ImageComponent", () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ImageComponent]
-    });
-    fixture = TestBed.createComponent(ImageComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+      declarations: [ImageComponent],
+      imports: [HttpClientTestingModule], // Import HttpClientTestingModule
+      providers: [ImageService], // Provide the ImageService
+    }).compileComponents();
   });
 
-  it('should create', () => {
+  it("should create", () => {
+    const fixture = TestBed.createComponent(ImageComponent);
+    const component = fixture.componentInstance;
     expect(component).toBeTruthy();
   });
+
+  // Additional tests can be added here
 });

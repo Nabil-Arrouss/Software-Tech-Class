@@ -1,21 +1,54 @@
-import { inject } from "@angular/core";
-import { CanActivateFn, Router } from "@angular/router";
+import { Injectable } from "@angular/core";
+import {
+  CanActivate,
+  ActivatedRouteSnapshot,
+  RouterStateSnapshot,
+  UrlTree,
+  Router,
+} from "@angular/router";
+import { Observable } from "rxjs";
 import { TokenService } from "../services/token.service";
 
-export const isUserAuthenticatedGuard: CanActivateFn = (route, state) => {
-  const isAuthenticated = inject(TokenService).isAuthenticated();
+@Injectable({
+  providedIn: "root",
+})
+export class IsUserAuthenticatedGuard implements CanActivate {
+  constructor(private tokenService: TokenService, private router: Router) {}
 
-  if (isAuthenticated) return true;
+  canActivate(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ):
+    | Observable<boolean | UrlTree>
+    | Promise<boolean | UrlTree>
+    | boolean
+    | UrlTree {
+    if (this.tokenService.isAuthenticated()) {
+      return true;
+    }
+    this.router.navigateByUrl("/login");
+    return false;
+  }
+}
 
-  inject(Router).navigateByUrl("/login");
-  return false;
-};
+@Injectable({
+  providedIn: "root",
+})
+export class IsGuestGuard implements CanActivate {
+  constructor(private tokenService: TokenService, private router: Router) {}
 
-export const isGuestGuard: CanActivateFn = (route, state) => {
-  const isAuthenticated = inject(TokenService).isAuthenticated();
-
-  if (!isAuthenticated) return true;
-
-  inject(Router).navigateByUrl("/dashboard");
-  return false;
-};
+  canActivate(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ):
+    | Observable<boolean | UrlTree>
+    | Promise<boolean | UrlTree>
+    | boolean
+    | UrlTree {
+    if (!this.tokenService.isAuthenticated()) {
+      return true;
+    }
+    this.router.navigateByUrl("/dashboard");
+    return false;
+  }
+}

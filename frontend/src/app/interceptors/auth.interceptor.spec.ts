@@ -1,13 +1,23 @@
 import { TestBed } from "@angular/core/testing";
-
+import { HttpClientTestingModule } from "@angular/common/http/testing";
+import { HTTP_INTERCEPTORS } from "@angular/common/http";
 import { AuthInterceptor } from "./auth.interceptor";
+import { TokenService } from "../services/token.service";
 
-describe("AauthInterceptor", () => {
-  beforeEach(() =>
+describe("AuthInterceptor", () => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [AuthInterceptor],
-    })
-  );
+      imports: [HttpClientTestingModule],
+      providers: [
+        TokenService,
+        {
+          provide: HTTP_INTERCEPTORS,
+          useClass: AuthInterceptor,
+          multi: true,
+        },
+      ],
+    });
+  });
 
   it("should be created", () => {
     const interceptor: AuthInterceptor = TestBed.inject(AuthInterceptor);
