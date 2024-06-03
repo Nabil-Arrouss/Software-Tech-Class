@@ -1,21 +1,24 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TestBed, async } from "@angular/core/testing";
+import { CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
+import { HttpClientTestingModule } from "@angular/common/http/testing"; // Import HttpClientTestingModule
+import { MuseumComponent } from "./museum.component";
+import { ImageService } from "src/app/services/image.service";
 
-import { MuseumComponent } from './museum.component';
-
-describe('MuseumComponent', () => {
-  let component: MuseumComponent;
-  let fixture: ComponentFixture<MuseumComponent>;
-
-  beforeEach(() => {
+describe("MuseumComponent", () => {
+  beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [MuseumComponent]
-    });
-    fixture = TestBed.createComponent(MuseumComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+      declarations: [MuseumComponent],
+      imports: [HttpClientTestingModule], // Include HttpClientTestingModule in imports
+      providers: [ImageService], // Provide the ImageService
+      schemas: [CUSTOM_ELEMENTS_SCHEMA], // Add this line to ignore unknown elements
+    }).compileComponents();
+  }));
 
-  it('should create', () => {
+  it("should create", () => {
+    const fixture = TestBed.createComponent(MuseumComponent);
+    const component = fixture.componentInstance;
     expect(component).toBeTruthy();
   });
+
+  // Add more tests as needed
 });
