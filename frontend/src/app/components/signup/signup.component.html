@@ -1,0 +1,72 @@
+<section class="row py-5">
+  <div class="col-12 col-md-6 col-lg-4 offset-md-3 offset-lg-4">
+    <div class="card">
+      <div class="card-body">
+        <h2 class="text-center my-4">Sign Up</h2>
+
+        <!-- Errors -->
+        <div class="alert alert-danger" *ngIf="errors?.name">
+          {{ errors.name }}
+        </div>
+        <div class="alert alert-danger" *ngIf="errors?.email">
+          {{ errors.email }}
+        </div>
+        <div class="alert alert-danger" *ngIf="errors?.password">
+          {{ errors.password }}
+        </div>
+
+        <!-- Register Form -->
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+          <!-- Input Name -->
+          <div class="mb-3">
+            <label for="inputName" class="form-label">Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputName"
+              formControlName="name"
+            />
+          </div>
+          <!-- Input Email -->
+          <div class="mb-3">
+            <label for="inputEmail" class="form-label">Email address</label>
+            <input
+              type="email"
+              class="form-control"
+              id="inputEmail"
+              formControlName="email"
+            />
+          </div>
+          <!-- Input Password -->
+          <div class="mb-3">
+            <label for="inputPassword" class="form-label">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="inputPassword"
+              formControlName="password"
+            />
+          </div>
+          <!-- Input Password Confirmation -->
+          <div class="mb-3">
+            <label for="inputPasswordConfirmation" class="form-label"
+              >Password Confirmation</label
+            >
+            <input
+              type="password"
+              class="form-control"
+              id="inputPasswordConfirmation"
+              formControlName="password_confirmation"
+            />
+          </div>
+          <button type="submit" class="btn btn-lg w-100 btn-primary mt-1 mb-4">
+            Sign Up
+          </button>
+          <a routerLink="/login" class="d-block text-center mb-4"
+            >I already have an account</a
+          >
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,5 +1,19 @@
 <nav class="navbar navbar-dark bg-dark">
-    <div class="container">
-      <a class="navbar-brand" href="/">I love Pécs Museum!</a>
+  <div class="container">
+    <a class="navbar-brand" routerLink="/">I love Pécs Museum!</a>
+    <div class="nav-links">
+      <a
+        *ngIf="!isAuthenticated"
+        routerLink="/signup"
+        class="nav-link nav-signup"
+        >Signup</a
+      >
+      <a *ngIf="!isAuthenticated" routerLink="/login" class="nav-link nav-login"
+        >Login</a
+      >
+      <a *ngIf="isAuthenticated" (click)="logout()" class="nav-link nav-logout"
+        >Logout</a
+      >
     </div>
-  </nav>
+  </div>
+</nav>

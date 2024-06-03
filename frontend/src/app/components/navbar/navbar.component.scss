@@ -1,3 +1,36 @@
 .navbar-brand {
-    font-family: "Lobster", sans-serif;
+  font-family: "Lobster", sans-serif;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+.nav-signup,
+.nav-login,
+.nav-logout {
+  font-size: 1.1rem;
+  margin-left: 1rem;
+  color: #fff;
+  transition: color 0.3s ease-in-out;
+}
+
+.nav-signup:hover,
+.nav-login:hover,
+.nav-logout:hover {
+  color: #ccc;
+  text-decoration: underline;
+}
+
+.nav-signup {
+  color: #28a745; /* Green color for signup */
+}
+
+.nav-login {
+  color: #17a2b8; /* Blue color for login */
+}
+
+.nav-logout {
+  color: #dc3545; /* Red color for logout */
 }
