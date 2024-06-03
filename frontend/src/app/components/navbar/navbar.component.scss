@@ -14,13 +14,13 @@
   margin-left: 1rem;
   color: #fff;
   transition: color 0.3s ease-in-out;
+  cursor: pointer;
 }
 
 .nav-signup:hover,
 .nav-login:hover,
 .nav-logout:hover {
   color: #ccc;
-  text-decoration: underline;
 }
 
 .nav-signup {
