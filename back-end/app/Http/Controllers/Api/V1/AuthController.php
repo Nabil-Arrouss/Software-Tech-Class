@@ -17,7 +17,7 @@ class AuthController extends Controller
     {
         if (! Auth::attempt($request->validated())) {
             return response()->json([
-                'errors' => 'Credenciales incorrectas.'
+                'errors' => 'Incorrect credentials.'
             ], Response::HTTP_UNAUTHORIZED);
         }
 
@@ -25,7 +25,7 @@ class AuthController extends Controller
         $userToken = $user->createToken('AppToken')->plainTextToken;
 
         return response()->json([
-            'message' => 'Se ha iniciado sesión correctamente.',
+            'message' => 'You have logged in successfully.',
             'token' => $userToken,
             'user' => $user
         ], Response::HTTP_OK);
@@ -36,7 +36,7 @@ class AuthController extends Controller
         $user = User::create($request->validated());
 
         return response()->json([
-            'message' => 'Usuario registrado exitosamente.'
+            'message' => 'User registered successfully.'
         ], Response::HTTP_CREATED);
     }
 
@@ -45,7 +45,7 @@ class AuthController extends Controller
         $request->user()->currentAccessToken()->delete();
 
         return response()->json([
-            'message' => 'Se ha cerrado sesión correctamente.'
+            'message' => 'You have been successfully logged out.'
         ], Response::HTTP_OK);
     }
 }
