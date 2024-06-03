@@ -1,22 +1,9 @@
-<!-- Login Component HTML -->
-<div
-  class="modal fade"
-  id="loginModal"
-  tabindex="-1"
-  role="dialog"
-  aria-labelledby="loginModalLabel"
-  aria-hidden="true"
->
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="loginModalLabel">Login</h5>
-        <button type="button" class="close" (click)="closeModal()" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        
-      </div>
-      <div class="modal-body">
+<section class="row py-5">
+  <div class="col-12 col-md-6 col-lg-4 offset-md-3 offset-lg-4">
+    <div class="card">
+      <div class="card-body">
+        <h2 class="text-center my-4">Login</h2>
+
         <!-- Errors -->
         <div class="alert alert-danger" *ngIf="errors?.email">
           {{ errors.email }}
@@ -33,19 +20,21 @@
 
         <!-- Login Form -->
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <!-- Input Email -->
           <div class="mb-3">
             <label for="inputEmail" class="form-label">Email address</label>
             <input
               type="email"
               class="form-control"
               id="inputEmail"
-              formControlName="email"
               aria-describedby="emailHelp"
+              formControlName="email"
             />
             <div id="emailHelp" class="form-text">
               We'll never share your email with anyone else.
             </div>
           </div>
+          <!-- Input Password -->
           <div class="mb-3">
             <label for="inputPassword" class="form-label">Password</label>
             <input
@@ -55,19 +44,14 @@
               formControlName="password"
             />
           </div>
-          <button type="submit" class="btn btn-lg btn-primary w-100">
+          <button type="submit" class="btn btn-lg btn-primary w-100 mt-1 mb-4">
             Login
           </button>
+          <a routerLink="/signup" class="d-block text-center mb-4"
+            >Create an account</a
+          >
         </form>
-        <a routerLink="/signup" class="d-block text-center"
-          >Create an account</a
-        >
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">
-          Close
-        </button>
       </div>
     </div>
   </div>
-</div>
+</section>

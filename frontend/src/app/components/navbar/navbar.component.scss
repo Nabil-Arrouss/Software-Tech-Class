@@ -2,6 +2,11 @@
   font-family: "Lobster", sans-serif;
 }
 
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
 .nav-signup,
 .nav-login,
 .nav-logout {

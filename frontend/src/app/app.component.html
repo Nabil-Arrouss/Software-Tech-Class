@@ -1,3 +1,7 @@
-<app-navbar></app-navbar>
-<app-museum></app-museum>
-<router-outlet></router-outlet>
+<router-outlet>
+  <app-navbar></app-navbar>
+
+  <div *ngIf="isAuthenticated">
+    <app-museum></app-museum>
+  </div>
+</router-outlet>
