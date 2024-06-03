@@ -42,8 +42,9 @@ public function guests_cannot_view_images()
     $response = $this->getJson("/api/v1/images/{$image->id}");
 
     // Expect a 401 Unauthorized
-    $response->assertStatus(401);
+    $response->assertUnauthorized();
 }
+
 
 
 }
