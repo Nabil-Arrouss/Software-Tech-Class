@@ -50,11 +50,11 @@ This project is created to immortalize memories of trips around the beautiful ci
 - Integrate user authentication and authorization functionalities.
  
 #### Step 3: Front-end Development
-- Set up the design of the application using Angular with help of:
-       * Bootstrap and ng-bootstrap 
-       * CSS
-       * Google FONTS (Lobster, Mulish)
-       * Remixicon (open-source icon library)
+- **Set up the design of the application using Angular with help of:**
+    - Bootstrap and ng-bootstrap.
+    - CSS
+    - Google FONTS (Lobster, Mulish)
+    - Remixicon (open-source icon library)
  
 #### Step 4: Testing
 - Testing the CRUD operation APIs using POSTMAN.
