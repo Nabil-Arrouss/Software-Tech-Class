@@ -35,12 +35,14 @@ This project is created to immortalize memories of trips around the beautiful ci
 ### Project Development Process
 
 #### Step 1: Getting ready and planning
-- Create project repository on GitHub.
-- Configure local development environments on our computers. This includes setting up frameworks and dependencies for Laravel and Angular and making sure we use the same versions of the technologies (composer, php, nodejs...) during the development process. 
-- Define Project requirements and objectives:
-      * Develop a CRUD (Create, Read, Update, Delete) operation application utilizing Laravel and Angular.
-      * Facilitate team collaborations throughout the Github kanban dashboard, by creating issues and handle them together. 
-- Define the tasks and create a project timeline.
+- **Create project repository on GitHub.**
+- **Configure local development environments on our computers.**
+    - This includes setting up frameworks and dependencies for Laravel and Angular.
+    - Ensure all team members use the same versions of the technologies (composer, php, nodejs...) during the development process. 
+- **Define Project requirements and objectives:**
+     - Develop a CRUD (Create, Read, Update, Delete) operation application utilizing Laravel and Angular.
+     - Facilitate team collaborations throughout the Github kanban dashboard, by creating issues and handle them together. 
+- **Define the tasks and create a project timeline.**
  
 #### Step 2: Back-end Development
 - Design the databse schema using drawio tool to define the structure and the attributes.
