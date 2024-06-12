@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # I Love Pécs Museum
 
 Welcome to the documentation for the I Love Pécs museum project.
@@ -32,6 +31,34 @@ This project is created to immortalize memories of trips around the beautiful ci
 - **Framework**: Laravel
 - **Language**: PHP
 
+
+### Project Development Process
+
+#### Step 1: Getting ready and planning
+- Create project repository on GitHub.
+- Configure local development environments on our computers. This includes setting up frameworks and dependencies for Laravel and Angular and making sure we use the same versions of the technologies (composer, php, nodejs...) during the development process. 
+- Define Project requirements and objectives:
+      * Develop a CRUD (Create, Read, Update, Delete) operation application utilizing Laravel and Angular.
+      * Facilitate team collaborations throughout the Github kanban dashboard, by creating issues and handle them together. 
+- Define the tasks and create a project timeline.
+ 
+#### Step 2: Back-end Development
+- Design the databse schema using drawio tool to define the structure and the attributes.
+- Configure the database with help of Laravel. 
+- Integrate user authentication and authorization functionalities.
+ 
+#### Step 3: Front-end Development
+- Set up the design of the application using Angular with help of:
+       * Bootstrap and ng-bootstrap 
+       * CSS
+       * Google FONTS (Lobster, Mulish)
+       * Remixicon (open-source icon library)
+ 
+#### Step 4: Testing
+- Testing the CRUD operation APIs using POSTMAN.
+- Implement unit tests.
+- Fix any errors that may occur.
+
 ## Setup and Installation
 
 ### Prerequisites
@@ -64,7 +91,7 @@ This project is created to immortalize memories of trips around the beautiful ci
 
 1. Navigate to the backend directory:
     ```bash
-    cd backend
+    cd back-end
     ```
 2. Install dependencies:
     ```bash
