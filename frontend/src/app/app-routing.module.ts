@@ -6,6 +6,7 @@ import { DashboardComponent } from "./components/dashboard/dashboard.component";
 import { IsGuestGuard, IsUserAuthenticatedGuard } from "./guards/auth.guard";
 import { PageNotFoundComponent } from "./components/page-not-found/page-not-found.component";
 
+// Definition of routes and their guards.
 const routes: Routes = [
   { path: "login", component: LoginComponent, canActivate: [IsGuestGuard] },
   { path: "signup", component: SignupComponent, canActivate: [IsGuestGuard] },
@@ -14,8 +15,8 @@ const routes: Routes = [
     component: DashboardComponent,
     canActivate: [IsUserAuthenticatedGuard],
   },
-  { path: "", redirectTo: "login", pathMatch: "full" },
-  { path: "**", component: PageNotFoundComponent },
+  { path: "", redirectTo: "login", pathMatch: "full" }, // Default route that redirects to login.
+  { path: "**", component: PageNotFoundComponent }, // Catch-all route for undefined paths.
 ];
 
 @NgModule({
