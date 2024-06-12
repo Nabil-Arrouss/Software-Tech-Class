@@ -123,11 +123,30 @@ This project is created to immortalize memories of trips around the beautiful ci
 
 1. Sign up for an account.
 2. Log in to your account.
-3. Upload your photos and add descriptions.
+3. Upload your photo with a title.
 
-## Contributing
-
-We welcome contributions to this project. If you would like to contribute, please fork the repository and create a pull request with your changes.
-=======
-# Software-Tech-Class Project
+## Contribution Guide
  
+1. Determine your current working branch:
+    ```bash
+    git branch
+    ```
+2. Fetch the latest updates from the main branch:
+    ```bash
+    git pull
+    ```
+3. Establish a new branch for your feature or fix:
+    ```bash
+    git checkout -b <branch-name>
+    ```
+4. Develop within your designated branch.
+5. Prepare and commit your changes:
+    ```bash
+    git add .
+    git commit -m "<commit-message>"
+    ```
+6. Push your changes/work to the remote repository:
+    ```bash
+    git push -u origin <branch-name>
+    ```
+7. Upon completion, initiate a pull request to merge your branch into the main branch.
