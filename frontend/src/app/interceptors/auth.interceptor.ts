@@ -1,3 +1,5 @@
+// This interceptor is used to attach the JWT token to HTTP requests if the user is authenticated.
+
 import { Injectable } from "@angular/core";
 import {
   HttpRequest,
@@ -17,14 +19,17 @@ export class AuthInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
     if (this.tokenService.isAuthenticated()) {
-      const token = this.tokenService.getToken();
+      // Check if the user is authenticated.
+      const token = this.tokenService.getToken(); // Retrieve the authentication token.
       request = request.clone({
+        // Clone the request to modify it
         setHeaders: {
+          // Set the Authorization header to include the JWT token.
           Authorization: `Bearer ${token}`,
         },
       });
     }
 
-    return next.handle(request);
+    return next.handle(request); // Forward the request to the next handler in the chain.
   }
 }

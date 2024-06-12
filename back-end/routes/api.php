@@ -10,9 +10,12 @@ use Illuminate\Support\Facades\Route;
  */
 Route::group(['prefix' => 'v1'], function() {
 
-    Route::post('login', [AuthController::class, 'login']);
-    Route::post('register', [AuthController::class, 'register']);
-    Route::delete('logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
+    Route::post('login', [AuthController::class, 'login']); // Handles user login requests.
+    Route::post('register', [AuthController::class, 'register']); // Handles user registration requests.
+    Route::delete('logout', [AuthController::class, 'logout'])->middleware('auth:sanctum'); // Handles user logout requests and Secures the logout route to only authenticated users using Sanctum.
+
+
+
       // This line registers image management routes using 'ImageController', excluding the 'update' route and middleware only to certain operations.
 
       Route::apiResource('images', ImageController::class)

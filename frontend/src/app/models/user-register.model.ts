@@ -1,3 +1,5 @@
+// Represents the data required to register a new user.
+
 export interface UserRegister {
   name: string;
   email: string;

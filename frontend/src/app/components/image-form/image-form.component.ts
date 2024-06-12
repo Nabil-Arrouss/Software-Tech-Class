@@ -1,35 +1,37 @@
-import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ImageFormData } from 'src/app/models/image-form-data.model';
-import { Image } from 'src/app/models/image.model';
-import { ImageService } from 'src/app/services/image.service';
+// Component responsible for uploading images with titles.
 
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Output,
+  ViewChild,
+} from "@angular/core";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { ImageFormData } from "src/app/models/image-form-data.model";
+import { Image } from "src/app/models/image.model";
+import { ImageService } from "src/app/services/image.service";
 
 @Component({
-  selector: 'app-image-form',
-  templateUrl: './image-form.component.html',
-  styleUrls: ['./image-form.component.scss']
+  selector: "app-image-form",
+  templateUrl: "./image-form.component.html",
+  styleUrls: ["./image-form.component.scss"],
 })
-
-
 export class ImageFormComponent {
   imageForm: FormGroup;
   errors: string[] = [];
   responseMessage?: string;
 
-  @ViewChild('inputFile')
+  @ViewChild("inputFile") // Reference to the file input element in the template.
   inputFile!: ElementRef;
 
-  @Output()
+  @Output() // Event emitter to notify parent components of a successfully saved image.
   savedImage: EventEmitter<Image> = new EventEmitter<Image>();
 
-  constructor(
-    private fb: FormBuilder,
-    private imageService: ImageService
-  ) {
+  constructor(private fb: FormBuilder, private imageService: ImageService) {
     this.imageForm = this.fb.group({
-      title: ['', Validators.required],
-      image: ['', Validators.required]
+      title: ["", Validators.required],
+      image: ["", Validators.required],
     });
   }
 
@@ -51,13 +53,14 @@ export class ImageFormComponent {
       return;
     }
 
-    const formData = new FormData as ImageFormData;
-    formData.append('title', this.imageForm.get('title')?.value);
-    formData.append('image', this.imageForm.get('image')?.value);
+    const formData = new FormData() as ImageFormData; // Creates a new FormData object for HTTP submission.
+    formData.append("title", this.imageForm.get("title")?.value);
+    formData.append("image", this.imageForm.get("image")?.value);
 
+    // Calls the image service to save the image data.
     this.imageService.saveImage(formData).subscribe(
-      response => this.handleResponse(response),
-      errors => this.handleErrors(errors)
+      (response) => this.handleResponse(response),
+      (errors) => this.handleErrors(errors)
     );
   }
 
@@ -70,10 +73,10 @@ export class ImageFormComponent {
   }
 
   private handleResponse(response: any): void {
-    this.showSuccessAlert(response.message);
-    this.resetForm();
-    this.inputFile.nativeElement.value = "";
-    this.savedImage.emit(response.data);
+    this.showSuccessAlert(response.message); // Displays a success message.
+    this.resetForm(); // Resets the form after successful submission.
+    this.inputFile.nativeElement.value = ""; // Clears the file input.
+    this.savedImage.emit(response.data); // Emits the saved image data to the parent component.
   }
 
   private showSuccessAlert(message: string): void {
@@ -87,23 +90,24 @@ export class ImageFormComponent {
 
   private resetForm(): void {
     this.imageForm.reset({
-      title: '',
-      image: ''
+      title: "",
+      image: "",
     });
   }
 
   private handleErrors(errors: any): void {
     for (let error in errors.error.errors) {
-      this.errors.push(errors.error.errors[error][0]);
+      this.errors.push(errors.error.errors[error][0]); // Adds error messages to the errors array.
     }
   }
 
   private handleValidationErrors(): void {
-    if (this.imageForm.get('title')?.hasError('required')) {
-      this.errors.push('The title field is obligatory, please enter a title');
+    // Generates error messages for specific form controls.
+    if (this.imageForm.get("title")?.hasError("required")) {
+      this.errors.push("The title field is obligatory, please enter a title");
     }
-    if (this.imageForm.get('image')?.hasError('required')) {
-      this.errors.push('The image filed is obligatory, please upload an image');
+    if (this.imageForm.get("image")?.hasError("required")) {
+      this.errors.push("The image filed is obligatory, please upload an image");
     }
   }
 }
