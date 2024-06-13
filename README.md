@@ -52,7 +52,7 @@ This project is created to immortalize memories of trips around the beautiful ci
 #### Step 3: Front-end Development
 - **Set up the design of the application using Angular with help of:**
     - Bootstrap and ng-bootstrap.
-    - CSS
+    - SCSS
     - Google FONTS (Lobster, Mulish)
     - Remixicon (open-source icon library)
  
