@@ -14,4 +14,5 @@ export class AppComponent {
   get isAuthenticated(): boolean {
     return this.tokenService.isAuthenticated();
   }
+
 }

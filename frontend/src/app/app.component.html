@@ -1,7 +1,7 @@
-<router-outlet>
-  <app-navbar></app-navbar>
+<router-outlet> // Placeholder for the routed components
+  <app-navbar></app-navbar> // This component is always displayed
 
   <div *ngIf="isAuthenticated">
-    <app-museum></app-museum>
+    <app-museum></app-museum> // This component is only displayed if the 'isAuthenticated' property is 'true'
   </div>
 </router-outlet>
